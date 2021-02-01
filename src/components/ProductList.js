@@ -4,9 +4,11 @@ import { ListWrapper } from "../styles";
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
+import {useSelector} from "react-redux";
 
-const ProductList = ({ products, deleteProduct }) => {
+const ProductList = ({ deleteProduct }) => {
   const [query, setQuery] = useState("");
+  const products = useSelector(state => state.products);
 
   const productList = products
     .filter((product) =>
