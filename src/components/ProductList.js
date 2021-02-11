@@ -5,6 +5,10 @@ import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 import {useSelector} from "react-redux";
+// import AddButton from "./buttons/AddButton";
+import {Link} from "react-router-dom"
+
+import {BsPlusSquare} from "react-icons/bs";
 
 const ProductList = ({ deleteProduct }) => {
   const [query, setQuery] = useState("");
@@ -25,9 +29,17 @@ const ProductList = ({ deleteProduct }) => {
   return (
     <div>
       <SearchBar setQuery={setQuery} />
+      <Link to="/products/new" >
+        <BsPlusSquare className="float-right" size="2em" />
+      </Link>  
       <ListWrapper>{productList}</ListWrapper>
+      
     </div>
   );
 };
 
 export default ProductList;
+
+
+
+// {/* <AddButton /> */}
